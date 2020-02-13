@@ -29,9 +29,7 @@ jobs:
       
       # This step is because the next one otherwise would spit all the contents of the .app
     - name: Preparing zip for release
-      uses: montudor/action-zip@v0.1.0
-      with:
-        args: zip -qq -r ./build/Release/ControlRoom.zip ./build/Release
+      run: zip build/Release/ControlRoom.zip build/Release -x build/Release/ControlRoom.app.dSYM build/Release/ControlRoom.swiftmodule
     
       # Add Homebrew support later
     - name: Releasing to GH
