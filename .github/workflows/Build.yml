@@ -34,4 +34,4 @@ jobs:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
         automatic_release_tag: Release
         prerelease: false
-        files: ./build/Release/ControlRoom.app
+        files: ./build/Release
