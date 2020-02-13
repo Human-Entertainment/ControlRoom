@@ -19,12 +19,7 @@ jobs:
        
     - name : Building ControlRoom
       run: xcodebuild -project ControlRoom.xcodeproj 
-      
-    - name: Tagging
-      uses: Actions-R-Us/actions-tagger@latest
-      env:
-          GITHUB_TOKEN: '${{secrets.GITHUB_TOKEN}}'
-      
+
       # This is in the workflow, not on release
     - name: Uploading ControlRoom.app 
       uses: actions/upload-artifact@1.0.0
@@ -37,5 +32,6 @@ jobs:
       uses: marvinpinto/action-automatic-releases@v0.2.2
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
+        automatic_release_tag: Release
         prerelease: false
         files: ./build/Release/ControlRoom.app
