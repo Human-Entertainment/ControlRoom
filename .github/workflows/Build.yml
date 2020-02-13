@@ -27,6 +27,7 @@ jobs:
         name: ControlRoom.zip  
         path: build/Release
       
+      # This step is because the next one otherwise would spit all the contents of the .app
     - name: Preparing zip for release
       uses: actions/download-artifact@v1.0.0
       with:
@@ -37,7 +38,8 @@ jobs:
     - name: Releasing to GH
       uses: JasonEtco/upload-to-release@v0.1.1
       with:
-        args: build/Release/ControlRoom.zip
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        automatic_release_tag: latest
+        prerelease: false
+        title: Latest ControlRoom
+        files: build/Release/ControlRoom.zip
