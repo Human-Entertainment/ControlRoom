@@ -29,9 +29,9 @@ jobs:
       
       # This step is because the next one otherwise would spit all the contents of the .app
     - name: Preparing zip for release
-      uses: actions/download-artifact@v1.0.0
+      uses: TheDoctor0/zip-release@v0.2.1
       with:
-        name: ControlRoom.zip
+        filename: ControlRoom.zip
         path: build/Release
     
       # Add Homebrew support later
