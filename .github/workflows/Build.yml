@@ -27,5 +27,5 @@ jobs:
     - name: Release to GH
       uses: marvinpinto/action-automatic-releases@v0.2.2
       with:
-        repo_tokean: ${{ secrests.Repo_token }}
+        repo_tokean: ${{ secrets.Repo_token }}
         files: ./build/Release/ControlRoom.app
