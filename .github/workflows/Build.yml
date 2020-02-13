@@ -26,12 +26,18 @@ jobs:
       with:
         name: ControlRoom.zip  
         path: build/Release
-        
+      
+    - name: Preparing zip for release
+      uses: actions/download-artifact@v1.0.0
+      with:
+        name: ControlRoom.zip
+        path: build/Release
+    
       # Add Homebrew support later
     - name: Releasing to GH
-      uses: Roang-zero1/github-upload-release-artifacts-action@v2.1.0
+      uses: JasonEtco/upload-to-release@v0.1.1
       with:
-        args: build/Release
+        args: build/Release/ControlRoom.zip
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
