@@ -29,10 +29,9 @@ jobs:
       
       # This step is because the next one otherwise would spit all the contents of the .app
     - name: Preparing zip for release
-      uses: TheDoctor0/zip-release@v0.2.1
+      uses: montudor/action-zip@v0.1.0
       with:
-        filename: ControlRoom.zip
-        path: build/Release
+        args: zip -qq -r ./build/Release/ControlRoom.zip ./build/Release
     
       # Add Homebrew support later
     - name: Releasing to GH
@@ -42,4 +41,4 @@ jobs:
         automatic_release_tag: latest
         prerelease: false
         title: Latest ControlRoom
-        files: build/Release/ControlRoom.app
+        files: build/Release/ControlRoom.zip
