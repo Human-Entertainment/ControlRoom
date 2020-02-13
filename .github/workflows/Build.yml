@@ -19,9 +19,6 @@ jobs:
        
     - name : Building ControlRoom
       run: xcodebuild -project ControlRoom.xcodeproj 
- 
-    - name: Checking Out
-      uses: actions/checkout@v2
       
       # This is in the workflow, not on release
     - name: Uploading ControlRoom.app 
