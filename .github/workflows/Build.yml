@@ -23,7 +23,9 @@ jobs:
     runs-on: macos-latest
     needs: build
     steps:
-    
+    - name: Checking Out
+      uses: actions/checkout@v2
+      
       # This is in the workflow, not on release
     - name: Uploading ControlRoom.app 
       uses: actions/upload-artifact@1.0.0
