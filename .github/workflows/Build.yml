@@ -19,10 +19,7 @@ jobs:
        
     - name : Building ControlRoom
       run: xcodebuild -project ControlRoom.xcodeproj 
-  release: 
-    runs-on: macos-latest
-    needs: build
-    steps:
+ 
     - name: Checking Out
       uses: actions/checkout@v2
       
