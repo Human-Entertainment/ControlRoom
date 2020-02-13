@@ -21,10 +21,9 @@ jobs:
       run: xcodebuild -project ControlRoom.xcodeproj 
       
     - name: Tagging
-      uses: K-Phoen/semver-release-action@v1.2.0
-      with:
-        release_branch: master # consider making a release branch?
-        release_strategy: tag
+      uses: Actions-R-Us/actions-tagger@latest
+      env:
+          GITHUB_TOKEN: '${{secrets.GITHUB_TOKEN}}'
       
       # This is in the workflow, not on release
     - name: Uploading ControlRoom.app 
