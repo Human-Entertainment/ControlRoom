@@ -31,5 +31,5 @@ jobs:
       uses: marvinpinto/action-automatic-releases@v0.2.2
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
-        automatic_release_tag: true
+        prerelease: false
         files: ./build/Release/ControlRoom.app
