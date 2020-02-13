@@ -19,7 +19,11 @@ jobs:
        
     - name : Building ControlRoom
       run: xcodebuild -project ControlRoom.xcodeproj 
-
+  release: 
+    runs-on: macos-latest
+    needs: build
+    steps:
+    
       # This is in the workflow, not on release
     - name: Uploading ControlRoom.app 
       uses: actions/upload-artifact@1.0.0
@@ -29,9 +33,9 @@ jobs:
         
       # Add Homebrew support later
     - name: Releasing to GH
-      uses: marvinpinto/action-automatic-releases@v0.2.2
+      uses: Roang-zero1/github-upload-release-artifacts-action@v2.1.0
       with:
-        repo_token: ${{ secrets.GITHUB_TOKEN }}
-        automatic_release_tag: Release
-        prerelease: false
-        files: ./build/Release
+        args: build/Release
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
