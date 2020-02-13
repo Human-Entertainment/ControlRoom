@@ -42,4 +42,4 @@ jobs:
         automatic_release_tag: latest
         prerelease: false
         title: Latest ControlRoom
-        files: build/Release/ControlRoom.zip
+        files: build/Release/ControlRoom.app
