@@ -36,7 +36,7 @@ jobs:
     
       # Add Homebrew support later
     - name: Releasing to GH
-      uses: JasonEtco/upload-to-release@v0.1.1
+      uses: marvinpinto/action-automatic-releases@v0.2.2
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
         automatic_release_tag: latest
