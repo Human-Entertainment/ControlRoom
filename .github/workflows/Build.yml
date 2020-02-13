@@ -21,5 +21,11 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@1.0.0
       with:
-        name: ControlRoom.app  
+        name: ControlRoom.zip  
         path: ./build/Release
+        
+    - name: Release to GH
+      uses: marvinpinto/action-automatic-releases@v0.2.2
+      with:
+        repo_tokean: ${{ secrests.Repo_token }}
+        files: ./build/Release/ControlRoom.app
